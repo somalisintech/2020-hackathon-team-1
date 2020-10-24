@@ -1,0 +1,12 @@
+[
+    {
+        "firstName": "Anisa",
+        "lastname": "Tahlil",
+        "address": {
+            "line1": "330 Dixon Road",
+            "city": "Toronto",
+            "province": "Ontario",
+            "postalCode": "M9R1T1"
+        }
+    }
+]

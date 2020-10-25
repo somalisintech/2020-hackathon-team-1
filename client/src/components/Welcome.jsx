@@ -38,7 +38,6 @@ export const Welcome = props => {
 
     return (
         <Container component="main" maxWidth="xs">
-
           <CssBaseline />
           <SignInContainer>
             <Typography component="h1" variant="h5">

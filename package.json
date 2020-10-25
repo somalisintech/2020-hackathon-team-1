@@ -2,15 +2,26 @@
   "name": "api",
   "version": "0.0.0",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "server": "nodemon api/app.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently  \"npm run client\" \"npm run server\""
+  },
   "dependencies": {
+    "concurrently": "^5.3.0",
+    "bcrypt": "^5.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "install": "^0.13.0",
     "jade": "~1.11.0",
+    "migrate-mongo": "^8.1.4",
     "mongoose": "^5.10.10",
     "morgan": "~1.9.1",
     "tailwindcss": "^1.9.6"
+    "mongoose-seed": "^0.6.0",
+    "nodemon": "^2.0.6"
+    "passport": "^0.4.1"
   }
 }

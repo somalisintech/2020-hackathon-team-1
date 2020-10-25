@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Template = require('../../db/models/template');
-const Organization = require('../../db/models/organization');
+
 
 // get a list of all templates
 router.get('/', async (req, res, next) => {

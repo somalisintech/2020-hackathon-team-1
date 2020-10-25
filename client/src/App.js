@@ -1,6 +1,7 @@
 
 import { Welcome } from './components/Welcome'
-import {Home} from './components/Home'
+import { Home } from './components/Home'
+import React, { useState } from 'react'
 
 import {
   BrowserRouter as Router,
@@ -9,11 +10,14 @@ import {
   Link
 } from "react-router-dom";
 
+
 function App() {
+  const [organization, setOrganization] = useState("");
+
   return (
     <Router>
-    <div>
-      {/* <nav>
+      <div>
+        {/* <nav>
         <ul>
           <li>
             <Link to="/welcome">Weok</Link>
@@ -27,19 +31,20 @@ function App() {
         </ul>
       </nav> */}
 
-      <Switch>
-        {/* <Route path="/">
-          <Welcome />
-        </Route> */}
-       <Route path="/home">
-          <Home />
-        </Route> 
-        {/* <Route path="/">
+        <Switch>
+          <Route path="/">
+            <Welcome organization={organization}
+              setOrganization={setOrganization} />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          {/* <Route path="/">
           <Home />
         </Route>  */}
-      </Switch>
-    </div>
-  </Router>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

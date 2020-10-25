@@ -11,9 +11,11 @@ router.get("/", async (req, res, next) => {
     return res.send(admins);
 });
 router.get("/login", async (req, res, next) => {
-    let email = req.body.email;
+    let email = req.query.email;
+    console.log("EMAIL", email);
     Admin.findOne({ email: email }).then((admin) => {
         Organization.findOne({ _id: admin.organization }).then((organization) => {
+            console.log("ORG ", organization)
             return res.send(organization)
         })
     })

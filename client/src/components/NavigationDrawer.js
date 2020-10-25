@@ -47,6 +47,7 @@ export const NavigationDrawer =() => {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
+          
           <Typography variant="h6" noWrap>
      Home
           </Typography>
@@ -71,6 +72,7 @@ export const NavigationDrawer =() => {
           ))}
         </List>
         <Divider />
+
         <List>
           {['These', 'Are', 'Dummy', 'Nav icons'].map((text, index) => (
             <ListItem button key={text}>

@@ -14,6 +14,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.post("/", async (req, res, next) => {
+  console.log(req.body)
   let addressBody = req.body.address;
   const address = new Address({
     line1: addressBody.line1,

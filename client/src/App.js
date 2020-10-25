@@ -1,5 +1,6 @@
 
 import { Welcome } from './components/Welcome'
+import NewUser from './components/NewUser'
 import { Home } from './components/Home'
 import React, { useState } from 'react'
 
@@ -29,6 +30,9 @@ function App() {
         <Switch>
           <Route path="/welcome">
             <Welcome />
+          </Route>
+          <Route path="/new-user">
+            <NewUser />
           </Route>
           <Route component={DefaultContainer} />
 

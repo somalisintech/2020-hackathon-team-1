@@ -13,12 +13,14 @@ const UserSchema = new Schema({
         required: true
     },
     address: {
-        ype: mongoose.Schema.Types.ObjectId,
-        ref: 'Address'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'address'
     },
     date: {
         type: Date,
         default: Date.now
     }
 });
-mongoose.model('users', UserSchema);
+
+module.exports = mongoose.model('users', UserSchema);
+

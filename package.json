@@ -4,12 +4,17 @@
   "private": true,
   "scripts": {},
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "install": "^0.13.0",
     "jade": "~1.11.0",
+    "migrate-mongo": "^8.1.4",
     "mongoose": "^5.10.10",
-    "morgan": "~1.9.1"
+    "mongoose-seed": "^0.6.0",
+    "morgan": "~1.9.1",
+    "passport": "^0.4.1"
   }
 }

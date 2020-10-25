@@ -1,3 +1,4 @@
+
 var express = require('express');
 var router = express.Router();
 
@@ -19,23 +20,36 @@ router.post("/", async (req, res, next) => {
     city: addressBody.city,
     province: addressBody.province,
     postalCode: addressBody.postalCode
+  });
+  address.save().catch((err) => {
+    console.log("Error saving user address ", err)
+    res.sendStatus(500);
   })
   let orgBody = req.body.organization;
-  const organization = new Organization({
-    name: orgBody.name,
-    city: orgBody.city,
-    phoneNumber: orgBody.phoneNumber
+  Organization.findOne({ name: orgBody.name }).then(async (organization) => {
+    const user = new Users({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      address: address,
+      organization: organization
+    });
+    await user.save()
+  }).catch((err) => {
+    console.log("Error saving user ", err)
+    res.sendStatus(500);
   })
-
-  const user = new Users({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    address: address,
-    organization: organization
-  });
-  await user.save()
-
   res.sendStatus(204)
+});
+
+router.delete("/", async (req, res, next) => {
+  let orgId = req.body.organization;
+  Users.remove({ organization: orgId }).then(() => {
+    res.sendStatus(200);
+
+  }).catch((err) => {
+    console.log("Error deleting users ", err);
+    res.sendStatus(500);
+  })
 
 });
 module.exports = router;

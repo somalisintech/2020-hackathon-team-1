@@ -12,12 +12,12 @@ const AddressSchema = new Schema({
         required: true
     },
     province: {
-        type: Object,
+        type: String,
         required: true
     },
     postalCode: {
-        type: Date,
-        default: Date.now
+        type: String,
+        default: true
     }
 });
 

@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcrypt');
 
 
 const Admin = require("../../db/models/Admin");
@@ -29,11 +30,21 @@ router.post("/", (req, res, next) => {
             organization: organization
 
         })
-        await admin.save();
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(admin.password, salt, (err, hash) => {
+                if (err) throw err;
+                admin.password = hash;
+                admin.save().then(() => {
+                    console.log("Successfully registered admin");
+                }).catch(err => {
+                    console.log("Error registering admin", err);
+                    return;
+                })
+            });
+        });
+        res.sendStatus(204)
     });
-    res.sendStatus(204)
 });
-
 router.delete("/", async (req, res, next) => {
     const admins = await Admin.remove();
     return res.send(admins);

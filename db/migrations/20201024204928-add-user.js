@@ -3,7 +3,9 @@ module.exports = {
     // TODO write your migration here.
     // See https://github.com/seppevs/migrate-mongo/#creating-a-new-migration-script
     // Example:
-    await db.createCollection("users");
+    await db.users.insert({
+      fistName: "Anisa", lastName: "Tahlil"
+    })
   },
 
   async down(db, client) {

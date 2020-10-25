@@ -3,7 +3,7 @@ module.exports = {
     // TODO write your migration here.
     // See https://github.com/seppevs/migrate-mongo/#creating-a-new-migration-script
     // Example:
-    await db.createCollection("templates");
+    await db.createCollection('templates');
   },
 
   async down(db, client) {

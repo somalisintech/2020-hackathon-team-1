@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const TemplateSchema = new Schema(
@@ -8,16 +8,24 @@ const TemplateSchema = new Schema(
       required: true,
       max: 100,
     },
-    orginzation: {
+    organization: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Organization",
+      ref: 'Organization',
     },
     content: {
       type: String,
       required: true,
     },
+    lang: {
+      type: String,
+      required: true,
+    },
+    parent: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Template',
+    },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Template", TemplateSchema);
+module.exports = mongoose.model('Template', TemplateSchema);

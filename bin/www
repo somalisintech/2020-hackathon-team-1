@@ -4,11 +4,7 @@
  * Module dependencies.
  */
 
-<<<<<<< HEAD:bin/www
 var app = require('../api/app');
-=======
-var app = require('../api/app.js');
->>>>>>> 368524fac8e0c3a25a5050b978df5e7f4a944a91:bin/www
 var debug = require('debug')('api:server');
 var http = require('http');
 

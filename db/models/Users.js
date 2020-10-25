@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Address = require('./Address.js');
 
 // create schema
 const UserSchema = new Schema({
@@ -16,10 +15,11 @@ const UserSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'address'
     },
-    date: {
-        type: Date,
-        default: Date.now
+    organization: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Organization'
     }
+
 });
 
 module.exports = mongoose.model('users', UserSchema);

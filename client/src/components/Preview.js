@@ -100,7 +100,7 @@ const Preview = () => {
         >
           <Fade in={open}>
             <div className={classes.paper}>
-              <h2 id="transition-modal-title">Preview</h2>
+              <h2 id="transition-modal-title">Close</h2>
               <Grid container className={classes.grid}>
                 {sent ? <ThankYou /> : <PreviewItems handleSent={handleSent} />}
               </Grid>
@@ -169,7 +169,7 @@ const ThankYou = () => {
   return (
     <>
       <h1 style={{ textAlign: 'center', color: '#131F37', width: '100%' }}>
-        Thank you that has now been sent
+        Thank you. The letters are being shipped to the patients
       </h1>
       <img src={artwork} style={{ maxWidth: '400px', margin: '0 auto' }} />
     </>

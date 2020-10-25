@@ -18,6 +18,7 @@ const drawerWidth = 240;
 const navUseStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    backgroundColor: "#0a2342",
   },
   appBar: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -34,7 +35,7 @@ const navUseStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: "#0a2342",
     padding: theme.spacing(3),
   },
 }));
@@ -48,7 +49,7 @@ export const NavigationDrawer = ({ title }) => {
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" noWrap>
-            {title ?? 'Home'}
+            {title ? title : 'Home'}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -63,7 +64,7 @@ export const NavigationDrawer = ({ title }) => {
         <div className={classes.toolbar} />
         <Divider />
         <List>
-          {['Profile', 'Settings', 'Template'].map((text, index) => (
+          {['Profiles', 'Manage Users', 'Templates'].map((text, index) => (
             <ListItem button key={text}>
               {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
               <ListItemText primary={text} />
@@ -71,14 +72,6 @@ export const NavigationDrawer = ({ title }) => {
           ))}
         </List>
         <Divider />
-        <List>
-          {['These', 'Are', 'Dummy', 'Nav icons'].map((text, index) => (
-            <ListItem button key={text}>
-              {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
       </Drawer>
     </div>
   );

@@ -6,7 +6,9 @@ const Template = require('../../db/models/template');
 // get a list of all templates
 router.get('/', async (req, res, next) => {
   const templates = await Template.find();
-  return res.send(templates);
+  //Assuming - You will get template
+  console.log(templates);
+  return res.render('templates/index', { templates });
 });
 
 // make a new template
@@ -31,7 +33,7 @@ router.post('/', async (req, res, next) => {
 // template detail view
 router.get('/:id', async (req, res, next) => {
   const { id } = req.params;
-  const parent = await Template.find({ _id: id });
+  const parent = await Template.findOne({ _id: id });
   const children = await Template.find({ parent: id });
 
   return res.send({

@@ -3,6 +3,7 @@ import { Welcome } from './components/Welcome'
 import { Home } from './components/Home'
 import React, { useState } from 'react'
 
+import { NavigationDrawer } from './components/NavigationDrawer'
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,6 +11,14 @@ import {
   Link
 } from "react-router-dom";
 
+const DefaultContainer = () => (
+  <div>
+    <NavigationDrawer />
+    <Route path="/home">
+      <Home />
+    </Route>
+  </div>
+)
 
 function App() {
   const [organization, setOrganization] = useState("");
@@ -17,31 +26,12 @@ function App() {
   return (
     <Router>
       <div>
-        {/* <nav>
-        <ul>
-          <li>
-            <Link to="/welcome">Weok</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/users">Users</Link>
-          </li>
-        </ul>
-      </nav> */}
-
         <Switch>
-          <Route path="/">
-            <Welcome organization={organization}
-              setOrganization={setOrganization} />
+          <Route path="/welcome">
+            <Welcome />
           </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          {/* <Route path="/">
-          <Home />
-        </Route>  */}
+          <Route component={DefaultContainer} />
+
         </Switch>
       </div>
     </Router>
@@ -49,3 +39,5 @@ function App() {
 }
 
 export default App;
+
+

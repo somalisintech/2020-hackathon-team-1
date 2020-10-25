@@ -1,15 +1,10 @@
+import { Welcome } from './components/Welcome';
+import Preview from './components/Preview';
+import { Home } from './components/Home';
+import React, { useState } from 'react';
 
-import { Welcome } from './components/Welcome'
-import { Home } from './components/Home'
-import React, { useState } from 'react'
-
-import { NavigationDrawer } from './components/NavigationDrawer'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { NavigationDrawer } from './components/NavigationDrawer';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const DefaultContainer = () => (
   <div>
@@ -18,10 +13,10 @@ const DefaultContainer = () => (
       <Home />
     </Route>
   </div>
-)
+);
 
 function App() {
-  const [organization, setOrganization] = useState("");
+  const [organization, setOrganization] = useState('');
 
   return (
     <Router>
@@ -30,8 +25,11 @@ function App() {
           <Route path="/welcome">
             <Welcome />
           </Route>
+          <Route path="/preview">
+            <NavigationDrawer title="Customers" />
+            <Preview />
+          </Route>
           <Route component={DefaultContainer} />
-
         </Switch>
       </div>
     </Router>
@@ -39,5 +37,3 @@ function App() {
 }
 
 export default App;
-
-

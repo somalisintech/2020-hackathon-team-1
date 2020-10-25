@@ -39,7 +39,7 @@ const navUseStyles = makeStyles((theme) => ({
   },
 }));
 
-export const NavigationDrawer =() => {
+export const NavigationDrawer = ({ title }) => {
   const classes = navUseStyles();
 
   return (
@@ -48,7 +48,7 @@ export const NavigationDrawer =() => {
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" noWrap>
-     Home
+            {title ?? 'Home'}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -79,7 +79,7 @@ export const NavigationDrawer =() => {
             </ListItem>
           ))}
         </List>
-      </Drawer> 
+      </Drawer>
     </div>
   );
-}
+};

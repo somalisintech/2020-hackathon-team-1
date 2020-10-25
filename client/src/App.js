@@ -1,5 +1,6 @@
 
 import { Welcome } from './components/Welcome'
+import { ConfirmationPage } from './components/ConfirmationPage'
 import { Home } from './components/Home'
 import React, { useState } from 'react'
 
@@ -14,27 +15,36 @@ import {
 const DefaultContainer = () => (
   <div>
     <NavigationDrawer />
-    <Route path="/home">
+    <Route path="/">
       <Home />
+    </Route>
+    <Route path="/confirmation">
+      <ConfirmationPage />
     </Route>
   </div>
 )
 
 function App() {
-  const [organization, setOrganization] = useState("");
 
+  const [organization, setOrganization] = useState("Toronto General");
+
+  function handleChange(org) {
+    setOrganization(org);
+  }
   return (
-    <Router>
+    <Router >
       <div>
         <Switch>
           <Route path="/welcome">
-            <Welcome />
+            <Welcome
+              organization={organization}
+              setOrganization={handleChange}
+            />
           </Route>
           <Route component={DefaultContainer} />
-
         </Switch>
       </div>
-    </Router>
+    </Router >
   );
 }
 

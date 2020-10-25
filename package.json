@@ -19,9 +19,9 @@
     "migrate-mongo": "^8.1.4",
     "mongoose": "^5.10.10",
     "morgan": "~1.9.1",
-    "tailwindcss": "^1.9.6"
+    "tailwindcss": "^1.9.6",
     "mongoose-seed": "^0.6.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
     "passport": "^0.4.1"
   }
 }

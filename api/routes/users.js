@@ -1,6 +1,8 @@
-const express = require('express');
-const Users = require('../../db/models/Users')
-const router = express.Router();
+
+var express = require('express');
+var router = express.Router();
+
+const Users = require("../../db/models/Users");
 
 const Address = require("../../db/models/Address");
 

@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+    .container
+        .search_bar
+            label
+            input(type="text", name="search", class="form-control", placeholder="Search all templates")
+        h4.mt-5 Recent
+        .d-flex.flex-wrap.justify-content-around.my-4
+            each template in templates
+
+                if template.parent
+                    a(href="/templates/" + template.parent).col-5.m-2
+                        .card
+                            .card-body
+                                h2.text-muted= template.name
+                else
+                    a(href="/templates/" + template.id).col-5.m-2
+                        .card
+                            .card-body
+                                h2.text-muted= template.name
+
+
+        h4 All
+        .d-flex.flex-wrap.justify-content-around.my-4
+            each template in templates
+
+                if template.parent
+                    a(href="/templates/" + template.parent).col-5.m-2
+                        .card
+                            .card-body
+                                h2.text-muted= template.name
+                else
+                    a(href="/templates/" + template.id).col-5.m-2
+                        .card
+                            .card-body
+                                h2.text-muted= template.name
